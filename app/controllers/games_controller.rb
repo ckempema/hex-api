@@ -15,10 +15,11 @@ class GamesController < ProtectedController
 
   # POST /games
   def create
-    @game = Game.new(game_params)
+    # @game = Game.new(game_params)
+    @game = current_user.games.build(game_params)
 
     if @game.save
-      render json: @game, status: :created, location: @game
+      render json: @game, status: :created
     else
       render json: @game.errors, status: :unprocessable_entity
     end
@@ -40,13 +41,14 @@ class GamesController < ProtectedController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_game
+    @game = current_user.games.find(game_params)
+    # @game = Game.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def game_params
-      params.require(:game).permit(:size, :status, :moves)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def game_params
+    params.require(:game).permit(:size, :status, :moves)
+  end
 end

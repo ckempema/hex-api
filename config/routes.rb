@@ -2,10 +2,8 @@
 
 Rails.application.routes.draw do
   resources :games
-  # RESTful routes
   resources :examples, except: %i[new edit]
 
-  # Custom routes
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
