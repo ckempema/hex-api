@@ -43,7 +43,7 @@ class GamesController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_game
-    @game = current_user.games.find(game_params)
+    @game = current_user.games.find(params[:id])
     # @game = Game.find(params[:id])
   end
 
