@@ -1,5 +1,5 @@
 # Project 2: Hex Game
-`NOTE: This readme is replicated in its entirety for both the client and api readmes`
+
 ## What is Hex?
   Hex is a graph based game in which two players, each controlling two parallel sides of a parallelogram board, attempt to place pieces in a way that connects their sides of the board before the opponent is able to connect theirs. It has been used in many instances of graph theory and game theory, with a particular focus on computer algorithms.
 
